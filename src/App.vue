@@ -14,7 +14,7 @@ const secondSelect = reactive([])
         label="Пользователь или компания"
         placeholder="Введите логин"
         required-asterisk
-        remote-url="https://habr.com/kek/v2/publication/suggest-mention?q="
+        remote-url="https://habr.com/kek/v2/publication/sывuggest-mention?q="
     />
     <MultiSelect
         style="margin-top: 20px"

@@ -38,11 +38,12 @@ const emits = defineEmits(['update:modelValue'])
 const selectWrapper = ref(null)
 
 const dropdown = ref(null)
-const locker = ref('')
 
 const text = ref('')
 const dropdownData = reactive([])
 const dropdownState = ref(false)
+const locker = ref('')
+const loader = ref(false)
 
 const showInput = computed(() => {
   return props.modelValue.length === 0 && !props.multiSelection ||
@@ -129,6 +130,7 @@ function debounce(func, ms) {
 }
 async function requestData() {
   try {
+    loader.value = true
     const resp = await fetch(props.remoteUrl + text.value)
     const data = await resp.json()
 
@@ -138,9 +140,12 @@ async function requestData() {
     } else {
       locker.value = 'Нет совпадений.'
     }
+    loader.value = false
     openDropdown()
   } catch(e) {
-    console.log(e)
+    locker.value = 'Ошибка выполнения запроса'
+    loader.value = false
+    openDropdown()
   }
 }
 const request = debounce(requestData, 400)
@@ -204,6 +209,7 @@ onUnmounted(() => {
         class="dropdown"
         :style="dropdownStyle"
     >
+      <div v-if="loader" class="loader" />
       <template v-if="dropdownData.length">
         <div
             v-for="item in dropdownData"
@@ -314,6 +320,7 @@ onUnmounted(() => {
 
   background: white;
   border: 1px solid #d6dfdf;
+  z-index: 5;
 }
 .dropdown::-webkit-scrollbar {
    height: 8px;
@@ -364,5 +371,13 @@ onUnmounted(() => {
 .locker-text {
   width: 100%;
   text-align: center;
+}
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .1)
 }
 </style>
