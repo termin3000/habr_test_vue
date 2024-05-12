@@ -1,0 +1,29 @@
+{
+  "name": "habr_test_vue",
+  "version": "1.0.0",
+  "description": "test task for habr",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/termin3000/habr_test_vue.git"
+  },
+  "author": "pro100jon@yandex.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/termin3000/habr_test_vue/issues"
+  },
+  "homepage": "https://github.com/termin3000/habr_test_vue#readme",
+  "dependencies": {
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.11"
+  }
+}
