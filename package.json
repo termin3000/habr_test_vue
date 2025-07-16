@@ -1,13 +1,14 @@
 {
   "name": "habr_test_vue",
   "version": "1.0.0",
-  "description": "test task for habr",
+  "description": "test_project",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo 'Error: no test specified'; false"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,11 @@
     "vue": "^3.4.27"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
     "@vitejs/plugin-vue": "^5.0.4",
     "vite": "^5.2.11"
+  },
+  "release": {
+    "branches": ["main"]
   }
 }
