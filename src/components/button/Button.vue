@@ -1,9 +1,11 @@
 <script setup>
-
+defineProps({
+  DiSaBlEd: Boolean
+})
 </script>
 
 <template>
-<Button>Кнопка</Button>
+<Button :disabled="DiSaBlEd">Кнопка</Button>
 </template>
 
 <style scoped>
